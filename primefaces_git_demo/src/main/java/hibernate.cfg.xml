@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/primefaces_git</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <!-- table management: auto update the DB based on entity structure -->
+        <!-- update: update existing data -->
+        <!-- create: recreate tables anew (existing data will be deleted) -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- when using 'create', the query will erase all the existing data to insert the new ones -->
+
+        <!-- number of SQL -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect: here I choose MySQL --> <!-- Added version '8' to fix an error -->
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- print SQL query: display executed requests in the console -->
+        <property name="show_sql">true</property>
+    </session-factory>
+</hibernate-configuration>

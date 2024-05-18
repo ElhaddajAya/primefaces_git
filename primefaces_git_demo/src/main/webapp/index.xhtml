@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>JSF PrimeFaces - Git</title>
+	<link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css" />
+	<script type="text/javascript">
+        function handleComplete() {
+            location.reload(); // rafraîchit la page après la soumission réussie
+        }
+    </script>
+</h:head>
+
+<h:body style="background-color: #eee;">
+	<h:form id="form">
+		<p:card style="width: 80%; margin: auto; margin-top: 4rem;">
+			<p:growl id="growl" showDetail="true" />
+
+			<h2>Add Client</h2>
+			<div class="ui-fluid formgrid grid">
+				<div class="field col-12 md:col-6">
+					<p:outputLabel for="firstname6" value="Firstname" />
+					<p:inputText id="firstname6" value="#{clientView.firstName}" required="true" />
+				</div>
+				<div class="field col-12 md:col-6">
+					<p:outputLabel for="lastname6" value="Lastname" />
+					<p:inputText id="lastname6" value="#{clientView.lastName}" required="true" />
+				</div>
+				<div class="field col-12">
+					<p:outputLabel for="address" value="Address" />
+					<p:inputTextarea id="address" rows="4" value="#{clientView.address}" required="true" />
+				</div>
+				<div class="field col-12 md:col-6">
+					<p:outputLabel for="@next" value="Basic" />
+					<p:selectOneMenu id="option" value="#{clientView.selectedCity}" required="true">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{clientView.cities}" var="city"
+							itemLabel="#{city}" itemValue="#{city}" />
+					</p:selectOneMenu>
+				</div>
+				<div class="field col-12 md:col-6">
+					<p:outputLabel for="@next" value="Phone" />
+					<p:inputMask id="phone" value="#{clientView.phone}" mask="(999) 999-9999"
+						validateMask="true" required="true" />
+				</div>
+				<p:divider />
+				<div class="field col-12 md:col-12">
+					<p:commandButton type="submit" value="submit"
+						title="Save" action="#{clientView.addClient()}" update="growl" />
+				</div>
+			</div>
+		</p:card>
+	</h:form>
+</h:body>
+
+</html>
