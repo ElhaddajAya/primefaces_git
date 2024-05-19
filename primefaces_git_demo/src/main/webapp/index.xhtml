@@ -5,12 +5,13 @@
 
 <h:head>
 	<title>JSF PrimeFaces - Git</title>
-	<link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css" />
+	<link rel="stylesheet"
+		href="https://unpkg.com/primeflex@latest/primeflex.css" />
 	<script type="text/javascript">
-        function handleComplete() {
-            location.reload(); // rafraîchit la page après la soumission réussie
-        }
-    </script>
+		function handleComplete() {
+			location.reload(); // rafraîchit la page après la soumission réussie
+		}
+	</script>
 </h:head>
 
 <h:body style="background-color: #eee;">
@@ -22,19 +23,23 @@
 			<div class="ui-fluid formgrid grid">
 				<div class="field col-12 md:col-6">
 					<p:outputLabel for="firstname6" value="Firstname" />
-					<p:inputText id="firstname6" value="#{clientView.firstName}" required="true" />
+					<p:inputText id="firstname6" value="#{clientView.firstName}"
+						required="true" />
 				</div>
 				<div class="field col-12 md:col-6">
 					<p:outputLabel for="lastname6" value="Lastname" />
-					<p:inputText id="lastname6" value="#{clientView.lastName}" required="true" />
+					<p:inputText id="lastname6" value="#{clientView.lastName}"
+						required="true" />
 				</div>
 				<div class="field col-12">
 					<p:outputLabel for="address" value="Address" />
-					<p:inputTextarea id="address" rows="4" value="#{clientView.address}" required="true" />
+					<p:inputTextarea id="address" rows="4"
+						value="#{clientView.address}" required="true" />
 				</div>
 				<div class="field col-12 md:col-6">
 					<p:outputLabel for="@next" value="Basic" />
-					<p:selectOneMenu id="option" value="#{clientView.selectedCity}" required="true">
+					<p:selectOneMenu id="option" value="#{clientView.selectedCity}"
+						required="true">
 						<f:selectItem itemLabel="Select One" itemValue="" />
 						<f:selectItems value="#{clientView.cities}" var="city"
 							itemLabel="#{city}" itemValue="#{city}" />
@@ -42,15 +47,18 @@
 				</div>
 				<div class="field col-12 md:col-6">
 					<p:outputLabel for="@next" value="Phone" />
-					<p:inputMask id="phone" value="#{clientView.phone}" mask="(999) 999-9999"
-						validateMask="true" required="true" />
+					<p:inputMask id="phone" value="#{clientView.phone}"
+						mask="(999) 999-9999" validateMask="true" required="true" />
 				</div>
 				<p:divider />
 				<div class="field col-12 md:col-12">
-					<p:commandButton type="submit" value="Save"
-						title="Save" action="#{clientView.addClient()}" update="growl" />
+					<p:commandButton type="submit" value="Save" title="Save"
+						action="#{clientView.addClient()}" update="growl" />
 				</div>
 			</div>
+
+			<p:divider />
+			<p:link outcome="table.xhtml" value="Clients list"></p:link>
 		</p:card>
 	</h:form>
 </h:body>
