@@ -36,4 +36,12 @@ public class ClientService {
             session.getTransaction().commit();
         }
     }
+    
+    public void deleteClient(Client client) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.delete(client);
+            session.getTransaction().commit();
+        }
+    }
 }
